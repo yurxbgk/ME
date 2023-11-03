@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling Website</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="Logo">Me</a>
+    </header>
+    <section>
+        <img src="./imagens/stars.png" id="stars">
+        <img src="./imagens/moon.png" id="moon">
+        <img src="./imagens/mountains_behind.png" id="mountains_behind">
+        <h2 id="text" id="title">Moon Light</h2>
+        <a href="#sec" id="btn" >Explore</a>
+        <img src="./imagens/mountains_front.png" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2>get to know me better</h2>
+        <p>
+            <br> Hello, my name is Yuri, I'm a 21 year old young man </br>
+            I like solving problems using programming!
+           <br>I am a dedicated, educated person and very willing to grow intellectually and professionally</br>            
+        </p>
+    </div>
+    <script>
+        let stars = document.getElementById("stars");
+        let moon = document.getElementById("moon");
+        let mountains_behind = document.getElementById("mountains_behind");
+        let text = document.getElementById("text");
+        let btn = document.getElementById("btn");
+        let mountains_front = document.getElementById("mountains_front");
+        let header = document.querySelector("header")
+
+        
+        window.addEventListener("scroll", function(){
+            var scrollPosition = window.scrollY || window.pageYOffset;
+            console.log(scrollPosition)
+
+            if (scrollPosition >= 200) { // Verifica se o scroll atingiu 200 pixels
+                text.style.display = 'none'; // Esconde a div
+            } else {
+                text.style.display = 'block'; // Mostra a div
+            }
+        
+            let value = window.scrollY;
+            stars.style.left = value *0.25  + "px"
+            moon.style.top = value *1.05  + "px"
+            mountains_behind.style.top = value *0.5  + "px"
+            text.style.marginRight = value *4  + "px"
+            text.style.marginTop = value *1.5  + "px"
+            btn.style.marginTop = value *1.5  + "px"
+            header.style.top = value *0.5 + "px"
+        })
+
+    </script>
+</body>
+</html>
